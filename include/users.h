@@ -2,17 +2,16 @@
 #include "esp_log.h"
 
 struct User_Data {
-    const char* username;
-    size_t username_len;
-    const char* password;
-    size_t password_len;
+    char* username;
+    char* password;
 };
 
 typedef struct User_Data User_t;
 
-const int USERS_SIZE = 10;
+#define USERS_SIZE 10
+
 int current_user_index = 0;
-User_t* users[10];
+User_t* users[USERS_SIZE] = {};
 
 static bool register_user(const char* username, const char* password){
     if(current_user_index < USERS_SIZE) {
@@ -28,7 +27,7 @@ static bool register_user(const char* username, const char* password){
     }
 }
 
-static User_t* user_exists(const char* username) {
+/*static User_t* user_exists(const char* username) {
     // Linear search
     for(int i = 0; i < USERS_SIZE; i++){
         User_t* user = users[i];
@@ -39,7 +38,7 @@ static User_t* user_exists(const char* username) {
         }
     }
     return NULL;
-}
+}*/
 
 static User_t* user_exists_from_buff(char* user_buff, size_t user_buff_size) {
     // Linear search
