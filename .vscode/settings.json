@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "*.dbclient-js": "javascript",
-        "variant": "c",
-        "random": "c",
-        "text_encoding": "c",
-        "typeinfo": "c"
-    }
-}
